@@ -43,22 +43,26 @@ public class ModuleList {
         case "CORE":
             Core newCore = new Core(moduleCode, modularCredits, year, semester);
             listOfModules.add(newCore);
+            LOGGER.log(Level.INFO, "Core module added to listOfModules");
             Print.printAddedModule(newCore, listOfModules.size());
             break;
         case "GE":
             GeneralElective newGeneralElective = new GeneralElective(moduleCode, modularCredits, year, semester);
             listOfModules.add(newGeneralElective);
+            LOGGER.log(Level.INFO, "GE module added to listOfModules");
             Print.printAddedModule(newGeneralElective, listOfModules.size());
             break;
         case "UE":
             UnrestrictedElective newUnrestrictedElective =
                     new UnrestrictedElective(moduleCode, modularCredits, year, semester);
             listOfModules.add(newUnrestrictedElective);
+            LOGGER.log(Level.INFO, "UE module added to listOfModules");
             Print.printAddedModule(newUnrestrictedElective, listOfModules.size());
             break;
         case "INTERNSHIP":
             Internship newinternship = new Internship(moduleCode, modularCredits, year, semester);
             listOfModules.add(newinternship);
+            LOGGER.log(Level.INFO, "Internship module added to listOfModules");
             Print.printAddedModule(newinternship, listOfModules.size());
             break;
         default:
@@ -186,6 +190,7 @@ public class ModuleList {
 
 
     public void editModularCredits(String moduleCode, String newModularCredits) {
+        LOGGER.log(Level.INFO, "Starting editModularCredits process");
         for (Module module : listOfModules) {
             if (module.getModuleCode().equals(moduleCode)) {
                 module.editModularCredits(newModularCredits);
@@ -195,6 +200,7 @@ public class ModuleList {
     }
 
     public void editYear(String moduleCode, String newYear) {
+        LOGGER.log(Level.INFO, "Starting editYear process");
         for (Module module : listOfModules) {
             if (module.getModuleCode().equals(moduleCode)) {
                 module.editYear(newYear);
@@ -204,6 +210,7 @@ public class ModuleList {
     }
 
     public void editSemester(String moduleCode, String newSemester) {
+        LOGGER.log(Level.INFO, "Starting editSemester process");
         for (Module module : listOfModules) {
             if (module.getModuleCode().equals(moduleCode)) {
                 module.editSemester(newSemester);
@@ -215,6 +222,7 @@ public class ModuleList {
     public void editModuleType(String moduleCode, String modularCredits,
                                String moduleType, String year, String semester, String grade) {
         //delete module with old moduleType
+        LOGGER.log(Level.INFO, "Starting editSemester process");
         for (int i = 0; i < listOfModules.size(); i++) {
             if (listOfModules.get(i).getModuleCode().equals(moduleCode)) {
                 listOfModules.remove(i);
